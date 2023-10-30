@@ -24,19 +24,18 @@ const Navbar = () => {
                             Pricing
                         </Link>
                         <LoginLink
-                            href="/pricing" 
                             className={buttonVariants({
-                            variant: 'ghost',
-                            size: 'sm',
-                        })}>
+                                variant: 'ghost',
+                                size: 'sm',
+                            })}>
                             Sign in
                         </LoginLink>
                         <RegisterLink
-                            href="/pricing" 
                             className={buttonVariants({
-                            size: 'sm',
-                        })}>
-                            Get started <ArrowRight className="ml-1.5 h-5 w-5" />
+                                size: 'sm',
+                            })}>
+                            Get started{' '}
+                            <ArrowRight className='ml-1.5 h-5 w-5' />
                         </RegisterLink>
                     </>
                 </div>

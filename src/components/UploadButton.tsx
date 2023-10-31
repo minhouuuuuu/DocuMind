@@ -10,12 +10,23 @@ import { Progress } from "./ui/progress"
 import { set } from "date-fns"
 import { useUploadThing } from "@/lib/uploadthing"
 import { useToast } from "./ui/use-toast"
+import { trpc } from "@/app/_trpc/client"
+import { useRouter } from "next/navigation"
 
 const UploadDropzone = () => {
+    const router = useRouter()
 
     const [isUploading, setIsUploading] = useState<boolean>(true)
     const [uploadProgress, setUploadProgress] = useState<number>(0)
     const {toast} = useToast()
+
+    const { mutate: startPolling } = trpc.getFile.useMutation({
+        onSuccess: (file) => {
+            router.push(`/dasboard/${file.id}`)
+        },
+        retry: true,
+        retryDelay: 500,
+    })
 
     const { startUpload } = useUploadThing("pdfUploader")
 
@@ -53,7 +64,7 @@ const UploadDropzone = () => {
 
             const[ fileResponse ] = res
 
-            const key = fileResponse.key
+            const key = fileResponse?.key
 
             if (!key) {
                 return toast({
@@ -63,7 +74,7 @@ const UploadDropzone = () => {
                 })
             }
 
-            
+
 
             clearInterval(progressInterval)
             setUploadProgress(100)

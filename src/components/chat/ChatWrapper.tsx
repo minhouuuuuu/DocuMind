@@ -41,7 +41,7 @@ const ChatWrapper = ({fileId}: ChatWrapperProps) => {
         <div className="flex-1 flex justify-center items-center flex-col mb-28">
           <div className="flex flex-col items-center gap-2">
             <Loader2 className="h-8 w-8 text-blue-500 animate-spin" />
-            <h3 className="font-semibold text-xl">Processing PDF :"&#62;&#62;</h3>
+            <h3 className="font-semibold text-xl">Processing PDF...</h3>
             <p className="text-zinc-500 text-sm">This won&apos;t take long.</p>
           </div>
         </div>
@@ -56,7 +56,7 @@ const ChatWrapper = ({fileId}: ChatWrapperProps) => {
           <div className="flex-1 flex justify-center items-center flex-col mb-28">
             <div className="flex flex-col items-center gap-2">
               <XCircle className="h-8 w-8 text-red-500" />
-              <h3 className="font-semibold text-xl">Too many pages :"&#60;&#60;&#60;</h3>
+              <h3 className="font-semibold text-xl">Too many pages...</h3>
               <p className="text-zinc-500 text-sm">Your <span className="font-medim">Free</span> {''}
                 plan supports up to 5 pages per PDF.
               </p>
